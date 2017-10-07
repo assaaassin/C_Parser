@@ -1,0 +1,21 @@
+digraph x{
+main->b
+main->doNothing
+main->c
+main->a
+main->yay
+main->doNothing
+main->testingFunction
+main->testingFunction
+main->testingFunction
+main->printf
+main->fibonacci
+main->printf
+fibonacci->fibonacci
+fibonacci->fibonacci
+doSomething->stubFunction
+doSomething->fibonacci
+doSomething->fibonacci
+doNothing->doSomething
+doNothing->testingFunction
+}
