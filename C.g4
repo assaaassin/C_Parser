@@ -1,5 +1,8 @@
+//    Name : Mujahid Khan          ID: 18100245       Email: 18100245@lums.edu.pk
+//    CS 4612: Intro to Program Analysis , Programming Assignment 1
+
 grammar C ;
-//check: INT IDENTIFIER ;
+
 @header{
 	import java.io.*;
 	import java.util.*;
@@ -40,9 +43,7 @@ codefile
 	int callerIndex = 0;
 	String callerFunc = "";
 	while (counter < newList.size()){
-		// String[] x = newList.get(counter).split(" ");
 		while (newList.get(counter).split(" ")[0].equals("Called")){
-			// System.out.println(callers.get(callerIndex)+"->"+newList.get(counter).split(" ")[1]);
 			printWriter.write(callers.get(callerIndex)+"->"+newList.get(counter).split(" ")[1]+"\n");
 			counter++;
 		}

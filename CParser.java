@@ -172,9 +172,7 @@ public class CParser extends Parser {
 				int callerIndex = 0;
 				String callerFunc = "";
 				while (counter < newList.size()){
-					// String[] x = newList.get(counter).split(" ");
 					while (newList.get(counter).split(" ")[0].equals("Called")){
-						System.out.println(callers.get(callerIndex)+"->"+newList.get(counter).split(" ")[1]);
 						printWriter.write(callers.get(callerIndex)+"->"+newList.get(counter).split(" ")[1]+"\n");
 						counter++;
 					}
@@ -434,7 +432,7 @@ public class CParser extends Parser {
 			match(RIGHTPAR);
 			setState(94);
 			match(SEMICOL);
-			System.out.println("Called function:"+ ((PrintfStatementContext)_localctx).PRINTF.getText()); globalList.add("Called "+ ((PrintfStatementContext)_localctx).PRINTF.getText());
+			 globalList.add("Called "+ ((PrintfStatementContext)_localctx).PRINTF.getText());
 			}
 		}
 		catch (RecognitionException re) {
@@ -1523,7 +1521,7 @@ public class CParser extends Parser {
 				match(RIGHTPAR);
 				setState(295);
 				match(SEMICOL);
-				System.out.println("Declared function:"+ ((FuncDeclareContext)_localctx).IDENTIFIER.getText());globalList.add("Declared "+ ((FuncDeclareContext)_localctx).IDENTIFIER.getText());
+				globalList.add("Declared "+ ((FuncDeclareContext)_localctx).IDENTIFIER.getText());
 				}
 				break;
 			case 2:
@@ -1539,7 +1537,7 @@ public class CParser extends Parser {
 				match(RIGHTPAR);
 				setState(302);
 				match(SEMICOL);
-				System.out.println("Declared function:"+ ((FuncDeclareContext)_localctx).IDENTIFIER.getText());globalList.add("Declared "+ ((FuncDeclareContext)_localctx).IDENTIFIER.getText());
+				globalList.add("Declared "+ ((FuncDeclareContext)_localctx).IDENTIFIER.getText());
 				}
 				break;
 			}
@@ -1729,7 +1727,7 @@ public class CParser extends Parser {
 				lines();
 				setState(328);
 				match(RIGHTCURL);
-				System.out.println("Defined function:"+ ((FuncDefinitionContext)_localctx).IDENTIFIER.getText()); globalList.add("Defined "+ ((FuncDefinitionContext)_localctx).IDENTIFIER.getText());
+				 globalList.add("Defined "+ ((FuncDefinitionContext)_localctx).IDENTIFIER.getText());
 				}
 				break;
 			case 2:
@@ -1749,7 +1747,7 @@ public class CParser extends Parser {
 				lines();
 				setState(337);
 				match(RIGHTCURL);
-				System.out.println("Defined function:"+ ((FuncDefinitionContext)_localctx).IDENTIFIER.getText());globalList.add("Defined "+ ((FuncDefinitionContext)_localctx).IDENTIFIER.getText());
+				globalList.add("Defined "+ ((FuncDefinitionContext)_localctx).IDENTIFIER.getText());
 				}
 				break;
 			}
@@ -1837,7 +1835,7 @@ public class CParser extends Parser {
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,31,_ctx);
 				}
-				System.out.println("Called function:"+ ((FuncCallContext)_localctx).IDENTIFIER.getText());globalList.add("Called "+ ((FuncCallContext)_localctx).IDENTIFIER.getText());
+				globalList.add("Called "+ ((FuncCallContext)_localctx).IDENTIFIER.getText());
 				}
 				break;
 			case 2:
@@ -1865,7 +1863,7 @@ public class CParser extends Parser {
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,32,_ctx);
 				}
-				System.out.println("Called function:"+ ((FuncCallContext)_localctx).IDENTIFIER.getText());globalList.add("Called "+ ((FuncCallContext)_localctx).IDENTIFIER.getText());
+				globalList.add("Called "+ ((FuncCallContext)_localctx).IDENTIFIER.getText());
 				}
 				break;
 			}
