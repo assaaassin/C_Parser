@@ -27,12 +27,15 @@ int main(){
 	printf(y+2+3);
 	printf(*fibonacci(y));
 	// testingFunction(2);
-	for (int i= 23.2 ; i<size; i != x){
+	for (int i= 23.2 ; i<size; i++){
 		for (double j=2.3 ; j<i; j>5.0 && j & i){
 			for (;;){
 				char yeah = "insideForLoop";
 				testingFunction(2.3, testingFunction(x, yeah), testingFunction(4,5,6));
+				break;
 			}
+			continue;
+			j--;
 		}
 	}
 	int x = 1.2;

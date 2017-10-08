@@ -68,6 +68,8 @@ lines: declareVariable lines
 	|  arraydeclaration lines	
 	|  returnStatement lines
 	|  printfStatement lines
+	|  breakStatement lines
+	|  continueStatement lines
 	|  ;
 
 //printf statement
@@ -78,13 +80,17 @@ returnStatement: RETURN (expression | funcCall)? SEMICOL;
 
 //variable declaration
 declareVariable: alltypes ASTERIK? IDENTIFIER SEMICOL;
+//break statement
+breakStatement: BREAK SEMICOL;
 
+//continue statement
+continueStatement: CONTINUE SEMICOL;
 
 //include statement
 include: INCLUDE (LT | '"') (IDENTIFIER | (IDENTIFIER.IDENTIFIER)) (GT | '"') ;
 
 //for loop //THEEK KRNA SUBHA UTH KAY
-forloop: FOR LEFTPAR assignment* SEMICOL expression* SEMICOL expression* RIGHTPAR LEFTCURL lines RIGHTCURL ;
+forloop: FOR LEFTPAR assignment? SEMICOL expression? SEMICOL (expression? | assignment)  RIGHTPAR LEFTCURL lines RIGHTCURL ;
 
 //while loop
 whileloop: WHILE LEFTPAR expression RIGHTPAR LEFTCURL lines RIGHTCURL ;
@@ -105,7 +111,9 @@ expression: (( ASTERIK? IDENTIFIER | DIGITDIGIT | ASTERIK* funcCall | DIGIT) (ev
 //Assignment
 assignment: (INT | DOUBLE | LONG | SHORT | FLOAT)* ASTERIK? IDENTIFIER ASSIGNMENT expression SEMICOL?
 			| CHAR* ASTERIK? IDENTIFIER ASSIGNMENT ( ('"' IDENTIFIER '"') | IDENTIFIER) SEMICOL* 
-			| ASTERIK? IDENTIFIER LEFTSQ expression RIGHTSQ ASSIGNMENT expression SEMICOL*;
+			| ASTERIK? IDENTIFIER LEFTSQ expression RIGHTSQ ASSIGNMENT expression SEMICOL*
+			| IDENTIFIER PLUSPLUS SEMICOL? 
+			| IDENTIFIER MINUSMINUS SEMICOL? ;
 
 //function declaration 
 funcDeclare: alltypes IDENTIFIER LEFTPAR argumentlist RIGHTPAR SEMICOL {globalList.add("Declared "+ $IDENTIFIER.getText());}
