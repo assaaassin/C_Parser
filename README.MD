@@ -30,5 +30,7 @@ IMPORTANT POINTS:
 	-> return 
 	-> include 
 	-> comments
+	-> increment and decrement ops (++, -- both postfix and prefix)
+	-> struct definition
 * Functions not compatible to take string inputs yet
 * Curly braces are a MUST for for and while loops and if else statements

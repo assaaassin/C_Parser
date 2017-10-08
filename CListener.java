@@ -31,6 +31,16 @@ public interface CListener extends ParseTreeListener {
 	 */
 	void exitLines(CParser.LinesContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CParser#struct}.
+	 * @param ctx the parse tree
+	 */
+	void enterStruct(CParser.StructContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CParser#struct}.
+	 * @param ctx the parse tree
+	 */
+	void exitStruct(CParser.StructContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CParser#printfStatement}.
 	 * @param ctx the parse tree
 	 */

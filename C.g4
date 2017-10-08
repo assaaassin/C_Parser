@@ -70,7 +70,12 @@ lines: declareVariable lines
 	|  printfStatement lines
 	|  breakStatement lines
 	|  continueStatement lines
+	|  struct lines
 	|  ;
+
+//struct
+struct: STRUCT IDENTIFIER LEFTCURL (declareVariable | assignment)+ RIGHTCURL SEMICOL
+		| 'typedef' STRUCT IDENTIFIER LEFTCURL (declareVariable | assignment)+ RIGHTCURL IDENTIFIER SEMICOL;
 
 //printf statement
 printfStatement: PRINTF LEFTPAR expression RIGHTPAR SEMICOL { globalList.add("Called "+ $PRINTF.getText());};	
@@ -113,7 +118,9 @@ assignment: (INT | DOUBLE | LONG | SHORT | FLOAT)* ASTERIK? IDENTIFIER ASSIGNMEN
 			| CHAR* ASTERIK? IDENTIFIER ASSIGNMENT ( ('"' IDENTIFIER '"') | IDENTIFIER) SEMICOL* 
 			| ASTERIK? IDENTIFIER LEFTSQ expression RIGHTSQ ASSIGNMENT expression SEMICOL*
 			| IDENTIFIER PLUSPLUS SEMICOL? 
-			| IDENTIFIER MINUSMINUS SEMICOL? ;
+			| IDENTIFIER MINUSMINUS SEMICOL? 
+			| PLUSPLUS IDENTIFIER SEMICOL?
+			| MINUSMINUS IDENTIFIER SEMICOL? ;
 
 //function declaration 
 funcDeclare: alltypes IDENTIFIER LEFTPAR argumentlist RIGHTPAR SEMICOL {globalList.add("Declared "+ $IDENTIFIER.getText());}
@@ -171,6 +178,7 @@ UNSIGNED: 'unsigned' ;
 COMM: '//' ~[\r\n]* -> skip ;
 
 PRINTF: 'printf';
+STRUCT: 'struct';
 //other keywords
 
 INCLUDE : '#include ' ;

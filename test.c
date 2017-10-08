@@ -1,9 +1,26 @@
 #include <stdio.h>
+
+
+struct shugalTest{
+	int x;
+	float y = 7.8;
+};
+
+typedef struct shugalCont {
+	double foo = 23.0;
+	short bar = 2;
+} meh ;
+
+
 long testingFunction(int a, char &b, bool &c);
+
+
 void doNothing(int x){
 	testingFunction();
 	doSomething(x);
 }
+
+
 double doSomething(int y){
 	if (y > 0){
 		return fibonacci(y);
@@ -12,6 +29,8 @@ double doSomething(int y){
 		return stubFunction(fibonacci(y+2));
 	}
 }
+
+
 double fibonacci(int n){
 	if (n < 2.9){
 		return n;
@@ -20,6 +39,8 @@ double fibonacci(int n){
 		return fibonacci(n-1) + fibonacci(n-2);
 	}
 }
+
+
 int main(){
 	int x; 
 	double y = 2;
@@ -38,7 +59,7 @@ int main(){
 			j--;
 		}
 	}
-	int x = 1.2;
+	int x = 101.2;
 	while (x){
 		if (y == 0.0){
 			int x[10.9];
@@ -52,8 +73,11 @@ int main(){
 			a(4.0);
 			b(doNothing(c(d)));
 		}
+		--x;
 	}
 }	
+
+
 long testingFunction(int a, char b, bool c){
  //ignore, stub function
 }
